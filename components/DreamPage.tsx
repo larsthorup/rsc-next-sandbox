@@ -8,7 +8,7 @@ export default async function DreamPage({ id }: DreamPageProps) {
   const dream = await getDream(id);
 
   return (
-    <div className="flex flex-col gap-y-4">
+    <div>
       <p>Heres your dream:</p>
       <p>{dream.content}</p>
       <DeleteDreamButton id={dream.id} />

@@ -1,6 +1,7 @@
 import DreamPage from "../components/DreamPage";
 import DreamsPage from "../components/DreamsPage";
 import MainLayout from "../components/MainLayout";
+import NewDreamPage from "../components/NewDreamPage";
 import { ClientRouterPage, ClientRouterProvider } from "../lib/router";
 
 async function getPage(route: string): Promise<JSX.Element> {
@@ -8,8 +9,8 @@ async function getPage(route: string): Promise<JSX.Element> {
   const page = (() => { switch (route) {
     case 'all':
       return <DreamsPage />;
-    // case 'new':
-    //   return <NewDreamPage />;
+    case 'new':
+      return <NewDreamPage />;
     default:
       return <DreamPage id={route} />;
   }})();
