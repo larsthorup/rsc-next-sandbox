@@ -1,7 +1,7 @@
 import DreamList from './DreamList';
 import RandomDreamButton from './RandomDreamButton';
-import Outline from './Outline';
-// import Link from './Link';
+import Outline from '../lib/Outline';
+import { Link } from '../lib/router';
 
 export default function Sidebar() {
   return (
@@ -10,9 +10,9 @@ export default function Sidebar() {
       <Outline text="Here are a few more dreams to check out:">
         <DreamList />
       </Outline>
-      {/* <Link href="new"> */}
+      <Link href="new">
         Add your own
-      {/* </Link> */}
+      </Link>
     </div>
   );
 }

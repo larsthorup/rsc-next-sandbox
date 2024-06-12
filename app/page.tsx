@@ -1,5 +1,6 @@
 import DreamsPage from "../components/DreamsPage";
 import MainLayout from "../components/MainLayout";
+import { ClientRouterPage, ClientRouterProvider } from "../lib/router";
 
 async function getPage(route: string): Promise<JSX.Element> {
   'use server';
@@ -18,5 +19,9 @@ async function getPage(route: string): Promise<JSX.Element> {
 export default async function RootPage() {
   const route = 'all';
   const page = await getPage(route);
-  return page;
+  return (
+    <ClientRouterProvider getPage={getPage} page={page} route={route}>
+      <ClientRouterPage />
+    </ClientRouterProvider>
+  );
 }

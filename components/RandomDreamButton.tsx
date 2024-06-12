@@ -1,12 +1,12 @@
 'use client';
 
 import React from 'react';
-// import { useNavigate } from './ClientRouter';
+import { useNavigate } from '../lib/router';
 
 export default function RandomDreamButton() {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   function onClick() {
-    // navigate('all');
+    navigate('all');
   }
 
   return (

@@ -1,4 +1,5 @@
-import { getRandomDream } from '../lib/getRandomDream';
+import { Link } from '../lib/router';
+import { getRandomDream } from '../service/getRandomDream';
 
 export default async function DreamsPage() {
   const dream = await getRandomDream();
@@ -11,7 +12,7 @@ export default async function DreamsPage() {
     <div>
       <p>Here is a random dream:</p>
       <p>{dream.content}</p>
-      {/* <Link href={dream.id}}>{`"${dream.name}" Permalink`}</Link> */}
+      <Link href={dream.id}>{`"${dream.name}" Permalink`}</Link>
     </div>
   );
 }
