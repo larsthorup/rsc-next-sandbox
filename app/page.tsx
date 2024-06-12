@@ -1,9 +1,5 @@
-import { PropsWithChildren } from "react";
 import DreamsPage from "../components/DreamsPage";
-
-function Layout({children}: PropsWithChildren<{}>) {
-  return <div>{children}</div>;
-}
+import MainLayout from "../components/MainLayout";
 
 async function getPage(route: string): Promise<JSX.Element> {
   'use server';
@@ -16,7 +12,7 @@ async function getPage(route: string): Promise<JSX.Element> {
       // return <DreamPage params={{ id: route }} />;
       return <div>404</div>;
   }})();
-  return <Layout>{page}</Layout>;
+  return <MainLayout>{page}</MainLayout>;
 }
 
 export default async function RootPage() {
