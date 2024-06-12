@@ -1,5 +1,5 @@
 import { Link } from '../lib/router';
-import { getRandomDream } from '../service/getRandomDream';
+import { getRandomDream } from '../services/getRandomDream';
 
 export default async function DreamsPage() {
   const dream = await getRandomDream();

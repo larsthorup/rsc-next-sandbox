@@ -1,4 +1,4 @@
-import { getDreams } from "../service/getDreams";
+import { getDreams } from "../services/getDreams";
 import { Link } from "../lib/router";
 
 export default async function DreamList() {

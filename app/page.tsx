@@ -1,3 +1,4 @@
+import DreamPage from "../components/DreamPage";
 import DreamsPage from "../components/DreamsPage";
 import MainLayout from "../components/MainLayout";
 import { ClientRouterPage, ClientRouterProvider } from "../lib/router";
@@ -10,8 +11,7 @@ async function getPage(route: string): Promise<JSX.Element> {
     // case 'new':
     //   return <NewDreamPage />;
     default:
-      // return <DreamPage params={{ id: route }} />;
-      return <div>404</div>;
+      return <DreamPage id={route} />;
   }})();
   return <MainLayout>{page}</MainLayout>;
 }
