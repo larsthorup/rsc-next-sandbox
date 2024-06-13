@@ -17,7 +17,7 @@ export default function DeleteDreamButton({ id }: DeleteDreamButtonProps) {
     });
   };
   return (
-    <button disabled={isPending} onClick={onClick}>
+    <button disabled={isPending} onClick={onClick} className="client-component">
       {isPending ? "Deleting..." : "Delete"}
     </button>
   );

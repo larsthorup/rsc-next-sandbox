@@ -1,6 +1,6 @@
 export default function Header() {
   return (
-    <header>
+    <header className="server-component">
       <div>
         <h1>
           {/* <a href="/"> */}

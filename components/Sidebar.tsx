@@ -5,7 +5,7 @@ import { Link } from '../lib/router';
 
 export default function Sidebar() {
   return (
-    <div>
+    <section className="server-component">
       <RandomDreamButton />
       <Outline text="Here are a few more dreams to check out:">
         <DreamList />
@@ -13,6 +13,6 @@ export default function Sidebar() {
       <Link href="new">
         Add your own
       </Link>
-    </div>
+    </section>
   );
 }

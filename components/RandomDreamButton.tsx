@@ -10,7 +10,7 @@ export default function RandomDreamButton() {
   }
 
   return (
-    <button onClick={onClick}>
+    <button onClick={onClick} className="client-component">
       See random dream
     </button>
   );

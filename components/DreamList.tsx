@@ -7,14 +7,17 @@ export default async function DreamList() {
     return b.createdAt > a.createdAt ? 1 : -1;
   });
   return (
-    <ul>
-      {dreamsSorted.map(({ id, name }) => {
-        return (
-          <li key={id}>
-            <Link href={id}>{name}</Link>
-          </li>
-        );
-      })}
-    </ul>
+    <div className="server-component">
+      <ul>
+        {dreamsSorted.map(({ id, name }) => {
+          return (
+            <li key={id}>
+              <Link href={id}>{name}</Link>
+            </li>
+          );
+        })}
+      </ul>
+      <small>{`(${new Date().toISOString()})`}</small>
+    </div>
   );
 }

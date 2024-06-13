@@ -5,11 +5,11 @@ import Sidebar from "./Sidebar";
 
 export default function MainLayout({ children }: PropsWithChildren<{}>) {
   return (
-    <main>
+    <main className="server-component">
       <Header />
       <div>
         <Sidebar />
-        <div>{children}</div>
+        <section>{children}</section>
       </div>
       <Footer />
     </main>

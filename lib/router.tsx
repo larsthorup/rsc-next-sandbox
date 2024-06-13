@@ -1,12 +1,15 @@
 'use client';
 
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState } from "react";
 
 interface RouteContextProps {
   navigate: (route: string) => void;
   page: JSX.Element;
 }
-const RouteContext = createContext<RouteContextProps>({ navigate: () => {}, page: <></> });
+const RouteContext = createContext<RouteContextProps>({
+  navigate: () => {},
+  page: <></>,
+});
 
 interface ClientRouterProps extends React.PropsWithChildren<{}> {
   getPage: (route: string) => Promise<JSX.Element>;
@@ -21,12 +24,16 @@ export function ClientRouterProvider({
 }: ClientRouterProps) {
   const [route, setRoute] = useState(initialRoute);
   const [page, setPage] = useState(initialPage);
-  async function navigate (newRoute: string) {
+  async function navigate(newRoute: string) {
     setRoute(newRoute);
     const newPage = await getPage(newRoute);
     setPage(newPage);
-  };
-  return <RouteContext.Provider value={{ navigate, page }}>{children}</RouteContext.Provider>;
+  }
+  return (
+    <RouteContext.Provider value={{ navigate, page }}>
+      {children}
+    </RouteContext.Provider>
+  );
 }
 
 export function ClientRouterPage() {
@@ -39,9 +46,13 @@ export function useNavigate() {
   return navigate;
 }
 
-interface LinkProps extends React.PropsWithChildren<{ href: string }>{}
+interface LinkProps extends React.PropsWithChildren<{ href: string }> {}
 
 export function Link({ href, children }: LinkProps) {
   const navigate = useNavigate();
-  return <a onClick={() => navigate(href)}>{children}</a>
+  return (
+    <a onClick={() => navigate(href)} className="client-component">
+      {children}
+    </a>
+  );
 }

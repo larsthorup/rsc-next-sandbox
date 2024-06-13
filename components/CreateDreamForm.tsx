@@ -11,7 +11,7 @@ export default function CreateDreamForm() {
     navigate(dream.id)
   }
   return (
-    <form autoComplete="off" action={submit}>
+    <form autoComplete="off" action={submit} className="client-component">
       <label>
         Name:
         <input name="name" type="text" required minLength={2} />

@@ -9,7 +9,7 @@ export default async function DreamsPage() {
   }
 
   return (
-    <div>
+    <div className="server-component">
       <p>Here is a random dream:</p>
       <p>{dream.content}</p>
       <Link href={dream.id}>{`"${dream.name}" Permalink`}</Link>
