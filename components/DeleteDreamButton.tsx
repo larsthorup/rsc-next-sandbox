@@ -2,7 +2,8 @@
 
 import { useTransition } from "react";
 import { deleteDream } from "../services/deleteDream";
-import { useNavigatePage, useInvalidateRoot } from "../lib/router";
+import { useNavigate as useNavigatePage } from "../router/PageRouter";
+import { useNavigate as useInvalidateRoot } from "../router/RootRouter";
 
 interface DeleteDreamButtonProps {
   id: string;

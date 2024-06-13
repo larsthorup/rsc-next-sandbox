@@ -1,5 +1,5 @@
 import { getDreams } from "../services/getDreams";
-import { Link } from "../lib/router";
+import { Link } from "../router/PageRouter";
 
 export default async function DreamList() {
   const dreams = await getDreams();
@@ -17,7 +17,7 @@ export default async function DreamList() {
           );
         })}
       </ul>
-      <small>{`(${new Date().toISOString()})`}</small>
+      <small>{`(${new Date().toISOString().substring(11, 19)})`}</small>
     </div>
   );
 }

@@ -1,7 +1,8 @@
 'use client';
 
 import SubmitButton from '../lib/SubmitButton';
-import { useNavigatePage, useInvalidateRoot } from '../lib/router';
+import { useNavigate as useNavigatePage } from '../router/PageRouter';
+import { useNavigate as useInvalidateRoot } from '../router/RootRouter';
 import { createDream } from '../services/createDream';
 
 export default function CreateDreamForm() {

@@ -2,11 +2,12 @@ import DreamPage from "../components/DreamPage";
 import DreamsPage from "../components/DreamsPage";
 import MainLayout from "../components/MainLayout";
 import NewDreamPage from "../components/NewDreamPage";
-import { ClientRouterRoot, ClientRouterPage, ClientRouterProvider } from "../lib/router";
+import { PageRouterPage, PageRouterProvider } from "../router/PageRouter";
+import { RootRouterPage, RootRouterProvider } from "../router/RootRouter";
 
 async function getRoot(): Promise<JSX.Element> {
   'use server';
-  return <MainLayout><ClientRouterPage /></MainLayout>;
+  return <MainLayout><PageRouterPage /></MainLayout>;
 }
 
 async function getPage(route: string): Promise<JSX.Element> {
@@ -23,11 +24,13 @@ async function getPage(route: string): Promise<JSX.Element> {
 
 export default async function RootPage() {
   const route = "all";
-  const layout = await getRoot();
+  const root = await getRoot();
   const page = await getPage(route);
   return (
-    <ClientRouterProvider getPage={getPage} page={page} getRoot={getRoot} root={layout} route={route}>
-      <ClientRouterRoot />
-    </ClientRouterProvider>
+    <RootRouterProvider getRoot={getRoot} root={root}>
+      <PageRouterProvider getPage={getPage} page={page} route={route}>
+        <RootRouterPage />
+      </PageRouterProvider>
+    </RootRouterProvider>
   );
 }

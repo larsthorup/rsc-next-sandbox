@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { useNavigatePage } from '../lib/router';
+import { useNavigate as useNavigatePage } from '../router/PageRouter';
 
 export default function RandomDreamButton() {
   const navigatePage = useNavigatePage();

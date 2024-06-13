@@ -1,7 +1,7 @@
 import DreamList from './DreamList';
 import RandomDreamButton from './RandomDreamButton';
 import Outline from '../lib/Outline';
-import { Link } from '../lib/router';
+import { Link } from '../router/PageRouter';
 
 export default function Sidebar() {
   return (
