@@ -1,4 +1,3 @@
-import { Link } from '../lib/router';
 import { getRandomDream } from '../services/getRandomDream';
 
 export default async function DreamsPage() {
@@ -12,7 +11,6 @@ export default async function DreamsPage() {
     <div className="server-component">
       <p>Here is a random dream:</p>
       <p>{dream.content}</p>
-      <Link href={dream.id}>{`"${dream.name}" Permalink`}</Link>
     </div>
   );
 }

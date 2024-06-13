@@ -2,18 +2,20 @@
 
 import { useTransition } from "react";
 import { deleteDream } from "../services/deleteDream";
-import { useNavigate } from "../lib/router";
+import { useNavigatePage, useInvalidateRoot } from "../lib/router";
 
 interface DeleteDreamButtonProps {
   id: string;
 }
 export default function DeleteDreamButton({ id }: DeleteDreamButtonProps) {
   const [isPending, startTransition] = useTransition();
-  const navigate = useNavigate();
+  const navigatePage = useNavigatePage();
+  const invalidateRoot = useInvalidateRoot();
   const onClick = () => {
     startTransition(async () => {
       await deleteDream(id);
-      navigate("all");
+      navigatePage("all");
+      invalidateRoot();
     });
   };
   return (

@@ -2,27 +2,32 @@ import DreamPage from "../components/DreamPage";
 import DreamsPage from "../components/DreamsPage";
 import MainLayout from "../components/MainLayout";
 import NewDreamPage from "../components/NewDreamPage";
-import { ClientRouterPage, ClientRouterProvider } from "../lib/router";
+import { ClientRouterRoot, ClientRouterPage, ClientRouterProvider } from "../lib/router";
+
+async function getRoot(): Promise<JSX.Element> {
+  'use server';
+  return <MainLayout><ClientRouterPage /></MainLayout>;
+}
 
 async function getPage(route: string): Promise<JSX.Element> {
-  'use server';
-  const page = (() => { switch (route) {
-    case 'all':
+  "use server";
+  switch (route) {
+    case "all":
       return <DreamsPage />;
-    case 'new':
+    case "new":
       return <NewDreamPage />;
     default:
       return <DreamPage id={route} />;
-  }})();
-  return <MainLayout>{page}</MainLayout>;
+  }
 }
 
 export default async function RootPage() {
-  const route = 'all';
+  const route = "all";
+  const layout = await getRoot();
   const page = await getPage(route);
   return (
-    <ClientRouterProvider getPage={getPage} page={page} route={route}>
-      <ClientRouterPage />
+    <ClientRouterProvider getPage={getPage} page={page} getRoot={getRoot} root={layout} route={route}>
+      <ClientRouterRoot />
     </ClientRouterProvider>
   );
 }
