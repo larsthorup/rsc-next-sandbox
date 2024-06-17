@@ -12,7 +12,7 @@ export default async function DreamList() {
         {dreamsSorted.map(({ id, name }) => {
           return (
             <li key={id}>
-              <Link href={id}>{name}</Link>
+              <Link href={id}><span className="server-component">{name}</span></Link>
             </li>
           );
         })}
